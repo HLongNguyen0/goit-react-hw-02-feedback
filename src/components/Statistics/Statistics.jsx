@@ -1,4 +1,5 @@
 import { StatisticsList, StatisticsElem } from './Statistics.styled';
+import Notification from './Notification/Notification';
 
 function Statistics({ good, neutral, bad, total, positivePercentage }) {
   const currentState = { good, neutral, bad };
@@ -15,11 +16,11 @@ function Statistics({ good, neutral, bad, total, positivePercentage }) {
           ))}
           <StatisticsElem>total : {totalFeedback}</StatisticsElem>
           <StatisticsElem>
-            positive feedback : {positivePercentage(totalFeedback, good)}
+            positive feedback : {positivePercentage(totalFeedback, good)}%
           </StatisticsElem>
         </>
       ) : (
-        'No given feedback'
+        <Notification message="No feedback given" />
       )}
     </StatisticsList>
   );
