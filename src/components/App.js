@@ -9,12 +9,12 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  countTotalFeedback({ good, neutral, bad }) {
-    return good + neutral + bad;
-  }
-  countPositiveFeedbackPercentage(total, goodFeedback) {
-    return Math.floor((goodFeedback * 100) / total);
-  }
+  countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad;
+  };
+  countPositiveFeedbackPercentage = () => {
+    return Math.floor((this.state.good * 100) / this.countTotalFeedback());
+  };
   onLeaveFeedback = key => {
     this.setState(prevState => {
       return { [key]: (prevState[key] += 1) };
